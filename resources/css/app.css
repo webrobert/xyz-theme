@@ -1,0 +1,19 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "custom.css";
+
+.home .entry-header {
+    display: none !important;
+}
+
+.home h2 {
+    @apply text-3xl !important;
+}
+@layer components {
+
+    .new-widget-area .widget {
+        @apply bg-gray-300;
+    }
+}
