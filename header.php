@@ -16,41 +16,46 @@
 
 <div id="page" class="min-h-screen flex flex-col">
 
+    <div class="flex items-center justify-center py-1 text-xs
+                bg-white sm:bg-yellow-200 md:bg-green-200 lg:bg-blue-400 xl:bg-purple-300">
+        <span class="sm:hidden">mobile</span>
+        <span class="hidden sm:block md:hidden">sm:small</span>
+        <span class="hidden md:block lg:hidden">md:medium</span>
+        <span class="hidden lg:block xl:hidden">lg:large</span>
+        <span class="hidden xl:block">xl:extra large</span>
+    </div>
+
 	<?php do_action( 'tailpress_header' ); ?>
 
-	<header class="sm:px-4">
-        <div class="lg:flex lg:justify-between lg:items-center border-b py-6 overflow-hidden">
-            <div class="flex justify-between items-center">
-                <div>
-                <?php if ( has_custom_logo() ) :
+	<header class="md:px-4 sm:flex justify-between items-center border-b overflow-hidden flex-wrap">
+        <div class="pr-10">
+        <?php if ( has_custom_logo() ) :
 
-                     the_custom_logo();
+             the_custom_logo();
 
-                    else : ?>
-                    <div class="text-lg uppercase ml-4">
-                        <a href="<?php echo get_bloginfo( 'url' ); ?>"
-                           class="font-extrabold text-lg uppercase">
-                            <?php echo get_bloginfo( 'name' ); ?>
-                        </a>
-                    </div>
-
-                    <p class="text-sm font-light text-gray-600">
-                        <?php echo get_bloginfo( 'description' ); ?>
-                    </p>
-
-                <?php endif; ?>
-                </div>
+            else : ?>
+            <div class="text-lg uppercase ml-4 py-6">
+                <a href="<?php echo get_bloginfo( 'url' ); ?>"
+                   class="font-extrabold text-lg uppercase">
+                    <?php echo get_bloginfo( 'name' ); ?>
+                </a>
             </div>
 
-            <?php wp_nav_menu([
-                'container_id'    => 'primary-menu',
-                'container_class' => 'border-t border-b border-white sm:border-none -mx-4 mt-4 pr-[100px] sm:mr-4 lg:mt-0 p-4 lg:p-0',
-                'menu_class'      => 'flex',
-                'theme_location'  => 'primary',
-                'li_class'        => 'mx-4 flex-none',
-                'fallback_cb'     => false,
-            ]); ?>
+            <p class="text-sm font-light text-gray-600">
+                <?php echo get_bloginfo( 'description' ); ?>
+            </p>
+
+        <?php endif; ?>
         </div>
+
+        <?php wp_nav_menu([
+            'container_id'    => 'primary-menu',
+            'container_class' => 'border-t border-b border-white sm:border-none -mx-4 p-4 pr-[100px] sm:ml-0 sm:mr-2 sm:p-0',
+            'menu_class'      => 'flex',
+            'theme_location'  => 'primary',
+            'li_class'        => 'mx-4 flex-none',
+            'fallback_cb'     => false,
+        ]); ?>
 	</header>
 
 	<div id="content" class="site-content flex-grow">

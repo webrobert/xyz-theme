@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-<section class="sm:min-h-screen flex items-center">
-	<div class="my-8 grid grid-cols-12 mx-8 sm:mx-12 xl:ml-20" style="margin-bottom: 20vh">
+<section class="md:min-h-[50vh] lg:min-h-screen flex items-center">
+	<div class="my-8 grid grid-cols-12 mx-8 sm:mx-12 xl:ml-20 lg:mb-[20vh]">
         <h3 class="entry-title text-4xl md:text-5xl lg:text-6xl col-span-12 sm:col-span-10 md:col-span-7 pr-4"
             style="line-height: 1.5">Robert Wayne is a venture builder, investor, steward, advisor...
             he makes things; companies, systems... pizza.
@@ -26,8 +26,8 @@
     </div>
 </section>
 
-<section class=" flex items-center min-h-[450px] border-t border-b border-white bg-white bg-opacity-20">
-    <div class="mx-auto prose sm:prose-lg md:prose-2xl md:max-w-4xl prose-zinc opacity-50 p-8 md:p-0">
+<section class="flex items-center min-h-[450px] border-t border-b border-white bg-white bg-opacity-20">
+    <div class="mx-auto prose sm:prose-lg md:prose-xl lg:prose-2xl md:max-w-3xl lg:max-w-4xl prose-zinc opacity-50 p-8 md:p-0">
         <blockquote>
             <p>A master in the art of living draws no sharp distinction between his work and his play, his labour and
                 his leisure, his mind and his body, his education and his recreation. He hardly knows which is which.
@@ -43,11 +43,13 @@
         <?php while ( have_posts() ) : the_post(); ?>
 
         <article id="post-<?php the_ID(); ?>" <?php post_class('md:grid grid-cols-12 items-center'); ?>>
-            <figure class="col-span-5 col-start-7 flex items-center">
+            <figure class="md:col-span-4 col-span-5 col-start-7 md:col-start-8 lg:col-span-5 lg:col-start-7
+            flex items-center about">
 		        <?php twenty_twenty_one_post_thumbnail(); ?>
             </figure>
 
-            <div class="mt-8 md:mt-0 order-first entry-content prose prose-xl col-start-2 col-span-4">
+            <div class="mt-8 md:mt-0 order-first entry-content prose prose-xl
+                        col-start-2 col-span-4 md:col-span-5 lg:col-span-4 md:col-start-2 lg:col-start-2">
                 <?php the_content(); ?>
             </div>
 

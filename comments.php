@@ -10,7 +10,8 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments"
-     class="comments-area my-8 prose px-5 md:pl-[20%] xl:pl-[30%] md:text-lg xl:text-xl max-w-content md:max-w-4xl xl:max-w-6xl">
+     class="comments-area my-8 prose
+     px-5 md:text-lg xl:text-xl sm:mx-auto lg:mx-0 lg:pl-[20%] xl:pl-[30%] max-w-content sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
 
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">

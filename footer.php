@@ -10,9 +10,9 @@
 <footer id="colophon" class="site-footer bg-slate-200 py-6 px-4 sm:px-8" role="contentinfo">
 	<?php do_action( 'tailpress_footer' ); ?>
 
-	<div class="text-gray-500 text-sm">
+	<a class="text-gray-500 text-sm cursor-default" href="/wp-admin/post-new.php">
 		&copy; <?php echo date_i18n( 'Y' );?> <?php echo get_bloginfo( 'name' );?>. All rights reserved.
-	</div>
+	</a>
 </footer>
 
 </div>

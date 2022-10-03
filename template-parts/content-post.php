@@ -23,7 +23,7 @@
     </header>
 
 	<?php if( has_post_thumbnail() ) : ?>
-    <figure x-data="{ open: false }" class="sm:px-5 md:pl-[20%] xl:pl-[20%] sm:max-w-4xl xl:max-w-none xl:pr-12 mb-10">
+    <figure x-data="{ open: false }" class="sm:px-5 sm:mx-auto lg:mx-0 lg:pl-[20%] xl:pl-[20%] sm:max-w-4xl xl:max-w-none xl:pr-12 mb-10">
         <div x-on:click="open = ! open" class="md:aspect-[16/5] xl:aspect-[16/8] bg-cover bg-no-repeat bg-center cursor-pointer xl:cursor-default"
              style="background-image: url(<?php echo get_the_post_thumbnail_url( null, 'large'); ?>)">
             <img :class="open ? 'xl:hidden' : 'md:hidden'" alt="feature image"
@@ -34,7 +34,8 @@
     <hr class="border-b-1 border-white my-12"/>
     <?php endif; ?>
 
-    <div class="entry-content prose px-5 md:pl-[20%] xl:pl-[30%] md:text-lg xl:text-xl max-w-content md:max-w-4xl xl:max-w-6xl">
+    <div class="entry-content prose
+     px-5 md:text-lg xl:text-xl sm:mx-auto lg:mx-0 lg:pl-[20%] xl:pl-[30%] max-w-content sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
 		<?php the_content(); ?>
 
 		<?php wp_link_pages([
