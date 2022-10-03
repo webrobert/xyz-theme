@@ -1,5 +1,4 @@
-<article id="post-<?php the_ID(); ?>"
-<?php post_class('status block aspect-[9/6] relative flex flex-col justify-between rounded-lg'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('status block aspect-[9/6] relative flex flex-col justify-between rounded-lg'); ?>>
     <div class="py-4 space-y-2 flex flex-col grow relative justify-between">
 
         <div class="entry-summary px-4 flex items-center relative">

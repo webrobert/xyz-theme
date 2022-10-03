@@ -1,5 +1,4 @@
-<article id="post-<?php the_ID(); ?>"
-    <?php post_class('overflow-hidden rounded-lg aspect-[9/6] relative'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('overflow-hidden rounded-lg aspect-[9/6] relative'); ?>>
 
     <div class="this-one select-none bg-cover bg-no-repeat bg-center rounded-lg absolute inset-0"
         <?php if ( has_post_thumbnail() ) printf( 'style="background-image: url(%s); z-index: 1"',

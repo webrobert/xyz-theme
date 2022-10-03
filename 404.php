@@ -1,24 +1,30 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?> class="no-js">
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
+<?php get_header(); ?>
 
-	<?php wp_head(); ?>
-</head>
-<body class="antialiased">
-	<div class="md:flex min-h-screen">
-		<div class="w-full md:w-1/2 flex items-center justify-center">
-			<div class="max-w-sm m-8">
-				<div class="text-5xl md:text-15xl text-gray-800 border-primary border-b">404</div>
-				<div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
-				<p class="text-gray-800 text-2xl md:text-3xl font-light mb-8"><?php _e( 'Sorry, the page you are looking for could not be found.', 'tailpress' ); ?></p>
-				<a href="<?php echo get_bloginfo( 'url' ); ?>" class="bg-primary px-4 py-2 rounded text-white">
-					<?php _e( 'Go Home', 'tailpress' ); ?>
-				</a>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+<div class="flex min-h-[90vh] bg-cover bg-center"
+     style="background-image: url('/wp-content/uploads/2022/10/tim-gouw-exxNNGUWOb0-unsplash.jpg')">
+    <div class="w-full md:flex items-center">
+
+        <div class="md:max-w-md p-8 md:pl-20 bg-gray-200 md:bg-opacity-70 md:bg-white">
+            <div class="text-5xl md:text-15xl text-gray-800 border-primary md:border-b">404</div>
+            <div class="w-16 h-1 bg-purple-light my-3"></div>
+
+            <h2 class="text-gray-800 text-2xl md:text-6xl font-light">How to Sail <span class="inline-block">a Sailboat</span></</h2>
+            <div class="prose prose-h5:m-0">
+                <p class="uppercase text-sm mt-1">By Dave Barry</p>
+
+                <div class="-mx-8 md:hidden">
+                    <img src="/wp-content/uploads/2022/10/tim-gouw-exxNNGUWOb0-unsplash.jpg" alt="sailing" class="m-0" />
+                </div>
+                <ol>
+                    <li>Figure out where you want to go.</li>
+                    <li>Whichever way it is, do NOT aim the sailboat in that direction.</li>
+                    <li>Aim the sailboat in some other direction.</li>
+                    <li>Trust me, this is the way sailboaters do it.</li>
+                    <li>They are heavy drinkers.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php get_footer();

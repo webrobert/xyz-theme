@@ -6,10 +6,12 @@
     </header>
 
 	<?php if( has_post_thumbnail() ) : ?>
-    <figure class="max-w-3xl mx-auto mb-8">
-        <a class="block aspect-[16/9] md:aspect-[16/5] xl:aspect-[16/8]" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1"
-           style="background: url(<?php echo get_the_post_thumbnail_url( null, 'large'); ?>) center center; background-size: cover">
-        </a>
+    <figure x-data="{ open: false }" class="max-w-3xl mx-auto mb-8">
+        <div x-on:click="open = ! open" class="aspect-[16/9] md:aspect-[16/5] xl:aspect-[16/8] md:cursor-pointer"
+             style="background: url(<?php echo get_the_post_thumbnail_url( null, 'large'); ?>) center center; background-size: cover">
+            <img x-cloak :class="open ? '' : 'md:hidden'" alt="feature image"
+                 src="<?php echo get_the_post_thumbnail_url( null, 'large'); ?>" />
+        </div>
     </figure>
 	<?php else : ?>
     <hr class="border-b-1 border-white my-12 hidden"/>
@@ -19,11 +21,11 @@
         <?php the_content(); ?>
 
 	    <?php if( is_page(['start-here', 'now']) ) : ?>
-        <p>
-            <time datetime="<?php echo the_modified_date( 'c' ); ?>"
-                  itemprop="dateUpdated" class="text-sm text-gray-700">
-                Updated: <?php echo the_modified_date(); ?>
+        <p class="text-sm text-gray-700 flex items-center gap-3">
+            <time datetime="<?php echo the_modified_date( 'c' ); ?>" itemprop="dateUpdated">
+                Updated: <?php echo the_modified_date('m.d.Y'); ?>
             </time>
+            <span><?php display_current_location() ?></span>
         </p>
 	    <?php endif; ?>
 

@@ -1,5 +1,4 @@
 <div class="_meta flex justify-between text-xs items-center px-4 z-10">
-
 	<time class="text-sm text-gray-500 flex gap-2 uppercase"
           datetime="<?php echo get_the_date( 'c' ); ?>" itemprop="datePublished">
 		<?php echo get_the_date('M.d.Y'); ?>

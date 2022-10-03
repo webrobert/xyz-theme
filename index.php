@@ -10,9 +10,10 @@
     <div class="px-4 sm:px-8 my-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 		<?php while ( have_posts() ) : the_post();
 
-        $format = in_category('twitter') ? 'twitter' : get_post_format();
-
-        get_template_part( 'template-parts/cards/format', $format );
+        get_template_part( 'template-parts/cards/format', in_category('twitter')
+                ? 'twitter'
+                : get_post_format()
+        );
 
 		endwhile; ?>
     </div>

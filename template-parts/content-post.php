@@ -9,8 +9,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header mb-4 px-5 md:px-8 space-y-8 xl:pl-[20%]">
-		<?php the_title( sprintf( '<h1 class="entry-title text-4xl md:text-6xl font-semibold leading-tight mb-2"><a href="%s" rel="bookmark">',
-            esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+		<h1 class="entry-title text-4xl md:text-6xl font-semibold leading-tight mb-2">
+            <?php the_title(); ?>
+        </h1>
 
         <div class="flex gap-6 xl:gap-8 text-base text-gray-700 uppercase">
 		    <time datetime="<?php echo get_the_date( 'c' ); ?>" itemprop="datePublished">
@@ -18,13 +19,16 @@
             </time>
             <div class="read-time"><?php post_read_time(); ?></div>
         </div>
+
     </header>
 
 	<?php if( has_post_thumbnail() ) : ?>
-    <figure class="sm:px-5 md:pl-[20%] xl:pl-[20%] sm:max-w-4xl xl:max-w-none xl:pr-12 mb-10">
-        <a class="block aspect-[16/9] md:aspect-[16/5] xl:aspect-[16/8] bg-cover bg-no-repeat bg-center"
-           href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1"
-           style="background-image: url(<?php echo get_the_post_thumbnail_url( null, 'large'); ?>)"></a>
+    <figure x-data="{ open: false }" class="sm:px-5 md:pl-[20%] xl:pl-[20%] sm:max-w-4xl xl:max-w-none xl:pr-12 mb-10">
+        <div x-on:click="open = ! open" class="md:aspect-[16/5] xl:aspect-[16/8] bg-cover bg-no-repeat bg-center cursor-pointer xl:cursor-default"
+             style="background-image: url(<?php echo get_the_post_thumbnail_url( null, 'large'); ?>)">
+            <img :class="open ? 'xl:hidden' : 'md:hidden'" alt="feature image"
+                 src="<?php echo get_the_post_thumbnail_url( null, 'large'); ?>" />
+        </div>
     </figure>
 	<?php else : ?>
     <hr class="border-b-1 border-white my-12"/>

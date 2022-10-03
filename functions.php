@@ -134,6 +134,13 @@ function register_custom_widget_area() {
 add_action( 'widgets_init', 'register_custom_widget_area' );
 
 
+function add_custom_query_var( $vars ){
+	$vars[] = "search";
+	return $vars;
+}
+add_filter( 'query_vars', 'add_custom_query_var' );
+
+
 if ( ! function_exists( 'twenty_twenty_one_post_thumbnail' ) ) {
     /**
      * Displays an optional post thumbnail.
@@ -249,3 +256,59 @@ function my_theme_archive_title( $title ) {
 }
 
 add_filter( 'get_the_archive_title', 'my_theme_archive_title' );
+
+// ******************** Clean up WordPress Header START ********************** //
+
+add_action('init', 'clean_up_head');
+function clean_up_head() {
+	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wp_generator');
+	remove_action('wp_head', 'index_rel_link');
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'feed_links', 2);
+	remove_action('wp_head', 'feed_links_extra', 3);
+	remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+	remove_action('wp_head', 'start_post_rel_link', 10, 0);
+	remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+	remove_action('wp_head', 'wp_shortlink_header', 10, 0);
+	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+}
+
+// add_filter( 'the_generator', fn($_removesVersion) => '');
+
+add_filter('xmlrpc_enabled', '__return_false');
+
+remove_action('wp_head', 'rest_output_link_wp_head', 10);
+remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+
+
+function cleanup_query_string( $src ){
+	$parts = explode( '?', $src );
+	return $parts[0];
+}
+//add_filter( 'script_loader_src', 'cleanup_query_string', 15, 1 );
+//add_filter( 'style_loader_src',  'cleanup_query_string', 15, 1 );
+
+
+//Remove jQuery migrate
+function smartwp_remove_jquery_migrate( $scripts ) {
+	if ( ! is_admin() && ! empty( $scripts->registered['jquery'] ) ) {
+		$scripts->registered['jquery']->deps = array_diff( $scripts->registered['jquery']->deps, [ 'jquery-migrate' ] );
+	}
+}
+add_action( 'wp_default_scripts', 'smartwp_remove_jquery_migrate' );
+// ******************** Clean up WordPress Header END ********************** //
+
+function results_found_text(int $count, $term) {
+    $pluralized = _n( 'result', 'results', (int) $count, 'tailpress');
+    echo "$count $pluralized for $term";
+}
+
+function display_current_location() {
+	if( ! is_page('now') ) return;
+
+	$location = get_post_meta( get_the_ID(), 'location', true);
+
+	echo $location ? "Current Location: $location" : '';
+}
