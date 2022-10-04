@@ -16,6 +16,7 @@
 
 <div id="page" class="min-h-screen flex flex-col">
 
+    <?php if( environment_is('local') ) : ?>
     <div class="flex items-center justify-center py-1 text-xs
                 bg-white sm:bg-yellow-200 md:bg-green-200 lg:bg-blue-400 xl:bg-purple-300">
         <span class="sm:hidden">mobile</span>
@@ -24,6 +25,7 @@
         <span class="hidden lg:block xl:hidden">lg:large</span>
         <span class="hidden xl:block">xl:extra large</span>
     </div>
+    <?php endif; ?>
 
 	<?php do_action( 'tailpress_header' ); ?>
 

@@ -21,12 +21,15 @@
         <?php the_content(); ?>
 
 	    <?php if( is_page(['start-here', 'now']) ) : ?>
-        <p class="text-sm text-gray-700 flex items-center gap-3">
-            <time datetime="<?php echo the_modified_date( 'c' ); ?>" itemprop="dateUpdated">
-                Updated: <?php echo the_modified_date('m.d.Y'); ?>
-            </time>
-            <span><?php display_current_location() ?></span>
-        </p>
+        <div class="text-sm text-gray-700 flex items-center gap-3">
+            <span>Updated: <time class="inline-block" datetime="<?php echo the_modified_date( 'c' ); ?>" itemprop="dateUpdated">
+                    <?php echo the_modified_date('m.d.Y'); ?></time></span>
+
+            <?php if (current_location()) : ?>
+            <span>Current Location: <map class="inline-block">
+                    <?php echo current_location() ?></map></span>
+            <?php endif; ?>
+        </div>
 	    <?php endif; ?>
 
         <?php wp_link_pages([

@@ -34,8 +34,7 @@
     <hr class="border-b-1 border-white my-12"/>
     <?php endif; ?>
 
-    <div class="entry-content prose
-     px-5 md:text-lg xl:text-xl sm:mx-auto lg:mx-0 lg:pl-[20%] xl:pl-[30%] max-w-content sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+    <div class="entry-content prose px-5 md:text-lg xl:text-xl sm:mx-auto lg:mx-0 lg:pl-[20%] xl:pl-[30%] max-w-content sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
 		<?php the_content(); ?>
 
 		<?php wp_link_pages([

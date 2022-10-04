@@ -1,5 +1,10 @@
 <?php
 
+
+function environment_is($env) : bool {
+	return $env == wp_get_environment_type(); // set locally in wp-config.php
+}
+
 /**
  * Theme setup.
  */
@@ -305,10 +310,10 @@ function results_found_text(int $count, $term) {
     echo "$count $pluralized for $term";
 }
 
-function display_current_location() {
+function current_location() {
 	if( ! is_page('now') ) return;
 
 	$location = get_post_meta( get_the_ID(), 'location', true);
 
-	echo $location ? "Current Location: $location" : '';
+	return $location ?: false;
 }
